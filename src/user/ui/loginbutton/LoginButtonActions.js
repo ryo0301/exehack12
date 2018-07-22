@@ -15,8 +15,10 @@ export function loginUser() {
     // Request uPort persona of account passed via QR
     uport.requestCredentials({
       requested: ['name', 'email', 'phone', 'country', 'avatar'],
+      verified: ['Reputation'],
       notifications: true // We want this if we want to recieve credentials
     }).then((credentials) => {
+      console.log(credentials)
       dispatch(userLoggedIn(credentials))
 
       // Used a manual redirect here as opposed to a wrapper.

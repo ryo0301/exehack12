@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import SharesContract from '../../util/SharesContract'
+import { uport } from '../../util/connectors.js'
 
 class Dashboard extends Component {
   constructor(props, { authData }) {
@@ -19,7 +20,19 @@ class Dashboard extends Component {
       if (error) {
         console.log(error)
       } else {
-        alert(txHash)
+        console.log(txHash)
+        const d = new Date()
+        uport.attestCredentials({
+          sub: address,
+          claim: {
+            "Ticket": {
+              "Host": "LIFULL STAY",
+              "Date": d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate(),
+              "Tx": txHash
+            }
+          },
+          exp: d.getTime() + (5 * 24 * 60 * 60 * 1000)
+        })
       }
     })
   }
@@ -34,6 +47,8 @@ class Dashboard extends Component {
 {this.props.authData.name}<br />
 <strong>メールアドレス</strong><br />
 {this.props.authData.email}<br />
+<strong>評価</strong><br />
+{this.props.authData.Reputation.Acclaimed}/{this.props.authData.Reputation.Reviewer}<br />
 <br />
 <strong>宿泊所</strong><br />
 東京都世田谷区 マンションの一室<br />
