@@ -48,7 +48,7 @@ class Dashboard extends Component {
 <strong>メールアドレス</strong><br />
 {this.props.authData.email}<br />
 <strong>評価</strong><br />
-{this.props.authData.Reputation.Acclaimed}/{this.props.authData.Reputation.Reviewer}<br />
+{this.props.authData.Reputation.Acceptable}/{this.props.authData.Reputation.Reviewer}<br />
 <br />
 <strong>宿泊所</strong><br />
 東京都世田谷区 マンションの一室<br />

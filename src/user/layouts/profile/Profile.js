@@ -19,7 +19,7 @@ class Profile extends Component {
       sub: address,
       claim: {
         "Reputation": {
-          "Acclaimed": 58,
+          "Acceptable": 58,
           "Reviewer": 63
         }
       },
@@ -33,6 +33,13 @@ class Profile extends Component {
         <div className="pure-g">
           <div className="pure-u-1-1">
             <h1>評価</h1>
+<strong>氏名</strong><br />
+{this.props.authData.name}<br />
+<strong>メールアドレス</strong><br />
+{this.props.authData.email}<br />
+<strong>評価</strong><br />
+{this.props.authData.Reputation.Acceptable || 0}/{this.props.authData.Reputation.Reviewer}<br />
+<br />
 <button type="button" onClick={this.attest}>評価</button>
           </div>
         </div>
