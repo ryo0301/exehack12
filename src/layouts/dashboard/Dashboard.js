@@ -22,12 +22,17 @@ class Dashboard extends Component {
       } else {
         console.log(txHash)
         const d = new Date()
+        const date = [
+          d.getFullYear(),
+          ('00'+(d.getMonth()+1)).slice(-2),
+          ('00'+d.getDate()).slice(-2)
+        ].join('-')
         uport.attestCredentials({
           sub: address,
           claim: {
             "Ticket": {
               "Host": "LIFULL STAY",
-              "Date": d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate(),
+              "Date": date,
               "Tx": txHash
             }
           },
