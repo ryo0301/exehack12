@@ -23,7 +23,7 @@ class Profile extends Component {
           "Reviewer": 63
         }
       },
-      exp: d.getTime() + (365 * 24 * 60 * 60 * 1000)
+      exp: (d.getTime()/1000|0) + (365*24*60*60)
     })
   }
 
