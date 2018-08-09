@@ -36,7 +36,7 @@ class Dashboard extends Component {
               "Tx": txHash
             }
           },
-          exp: d.getTime() + (5 * 24 * 60 * 60 * 1000)
+          exp: (d.getTime()/1000|0) + (5*24*60*60)
         })
       }
     })
